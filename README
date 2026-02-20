@@ -1,8 +1,14 @@
-запускаємо образ на фоні
-```
+# Запуск та налаштування додатку
+
+## Запуск
+
 docker compose up --build -d
-```
-дев мод
-```
+
+## Дев мод
+
 docker compose watch
-```
+
+## Видалити
+
+docker compose down -v
+
