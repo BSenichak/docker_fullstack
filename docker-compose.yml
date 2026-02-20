@@ -4,7 +4,8 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     volumes:
-      - /app/node_modules 
+      - ./backend:/app
+      - /app/node_modules
     ports:
       - "5000:5000"
     environment:
@@ -17,31 +18,16 @@ services:
     depends_on:
       db:
         condition: service_healthy 
-    develop:
-      watch:
-        - action: sync
-          path: ./backend
-          target: /app
-          ignore:
-            - node_modules/
-        - action: rebuild
-          path: ./backend/package.json
+
   frontend:
       build:
         context: ./frontend
       ports:
         - "5173:5173"
       volumes:
+        - ./frontend:/app
         - /app/node_modules
-      develop:
-        watch:
-          - action: sync
-            path: ./frontend
-            target: /app
-            ignore:
-              - node_modules/
-          - action: rebuild
-            path: ./frontend/package.json
+
   db:
     image: mysql:8.0
     restart: always

@@ -1,3 +1,4 @@
+import { Container, Typography } from '@mui/material'
 import './App.css'
 
 function App() {
@@ -5,9 +6,9 @@ function App() {
 
   return (
     <>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <Container>
+        <Typography variant='h1'>Hello world</Typography>
+      </Container>
     </>
   )
 }
