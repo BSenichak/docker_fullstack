@@ -1,0 +1,8 @@
+запускаємо образ на фоні
+```
+docker compose up --build -d
+```
+дев мод
+```
+docker compose watch
+```
